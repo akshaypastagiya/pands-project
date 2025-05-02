@@ -32,6 +32,6 @@ Dataset summery
 
     In this dataset we will there are mainly dataset is for sepal length, sepal width,petal length, petal width of those class
 
-    There are total 150 instance of dataset and 6 column of the dataset
+    There are total 150 instance of dataset and 5 column of the dataset
 
     Datasourse of the data is UCI Machine Lerning Repository https://archive.ics.uci.edu/
