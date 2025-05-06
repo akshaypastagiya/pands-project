@@ -12,41 +12,37 @@ import pandas as pd
 import writefile as wf
 
 # Gethred the iris data
-features,targets,variables = li.iris()
-
-#Create a dataframe of the iris dataset
-iris_df = features
-iris_df['targets'] = targets
+features,targets,variables,iris_df = li.iris()
 
 # Get file name of the file where we need to write down the summury of the data in to text file
 filename = "summary.txt"
 # Get the summery of the dataset we will be using pands shape command
 # shape is return a tuple representing the dimensionality of the DataFrame.
-data = f"Shape of the dataset: \n {iris_df.shape}\n"
+data_summary = f"Shape of the dataset: \n {iris_df.shape}\n"
 
 # pands dtypes function we will get the data type of each column.
-data += f"\n Data type of the dataset:\n{iris_df.dtypes}\n"
+data_summary += f"\n Data type of the dataset:\n{iris_df.dtypes}\n"
 
 # Gether the feture names of the data set
-data += f"\nFeature of the dataset:\n{variables.head(4)['name']}\n"
+data_summary += f"\nFeature of the dataset:\n{variables.head(4)['name']}\n"
 
 # Gether the tagrate class of the data set
-data += f"\nTarget class of the dataset:\n{variables.iloc[4]['description']}\n"
+data_summary += f"\nTarget class of the dataset:\n{variables.iloc[4]['description']}\n"
 
 #calculate mean of dataset
-data += f"\nMean of the dataset:\n{iris_df.mean(numeric_only = True)}\n"
+data_summary += f"\nMean of the dataset:\n{iris_df.mean(numeric_only = True)}\n"
 
 # Find the minimum value of the dataset
-data = data + f"\nMinimum value of the dataset:\n{iris_df.min(numeric_only = True)}\n"
+data_summary = data_summary + f"\nMinimum value of the dataset:\n{iris_df.min(numeric_only = True)}\n"
 
 # Find the maximum value of the dataset
-data += f"\nMaximum value of the dataset:\n{iris_df.max(numeric_only = True)}\n"
+data_summary += f"\nMaximum value of the dataset:\n{iris_df.max(numeric_only = True)}\n"
 
 #print the standard deviation of the dataset
-data = data + f"\nStandard deviation of the dataset:\n{iris_df.std(numeric_only = True)}\n"
+data_summary = data_summary + f"\nStandard deviation of the dataset:\n{iris_df.std(numeric_only = True)}\n"
 
 #print the median of the dataset
-data += f"\nMedian of the dataset:\n{iris_df.median(numeric_only = True)}\n"
+data_summary += f"\nMedian of the dataset:\n{iris_df.median(numeric_only = True)}\n"
 
 # Write data in to text file
-wf.write(filename,data)
+wf.write(filename,data_summary)

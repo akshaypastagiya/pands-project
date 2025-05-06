@@ -5,6 +5,8 @@
 
 
 from ucimlrepo import fetch_ucirepo 
+# Import pands function to gethred the data summary data
+import pandas as pd
 
 def iris():
     # fetch dataset 
@@ -14,8 +16,12 @@ def iris():
     features = iris.data.features
     targets = iris.data.targets
     variables = iris.variables
-            
+
+    #Create a dataframe of the iris dataset
+    iris_df = pd.DataFrame(features)
+    iris_df['targets'] = targets  
+
     # return the iris dataset data and variable
-    return features,targets,variables
+    return features,targets,variables,iris_df
 
 iris()

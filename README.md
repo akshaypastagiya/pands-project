@@ -36,3 +36,9 @@ Dataset summery
     There are total 150 instance of dataset and 5 column of the dataset
 
     Datasourse of the data is UCI Machine Lerning Repository https://archive.ics.uci.edu/
+
+Generate plot with different dataset
+    
+    1. To generate the histogram plot we will be using matplotlib function
+    2. To install matplotlib package pip install matplotlib
+https://matplotlib.org/stable/gallery/statistics/hist.html
