@@ -1,0 +1,55 @@
+Shape of the dataset: 
+ (150, 5)
+
+ Data type of the dataset:
+sepal length    float64
+sepal width     float64
+petal length    float64
+petal width     float64
+targets          object
+dtype: object
+
+Feature of the dataset:
+0    sepal length
+1     sepal width
+2    petal length
+3     petal width
+Name: name, dtype: object
+
+Target class of the dataset:
+class of iris plant: Iris Setosa, Iris Versicolour, or Iris Virginica
+
+Mean of the dataset:
+sepal length    5.843333
+sepal width     3.054000
+petal length    3.758667
+petal width     1.198667
+dtype: float64
+
+Minimum value of the dataset:
+sepal length    4.3
+sepal width     2.0
+petal length    1.0
+petal width     0.1
+dtype: float64
+
+Maximum value of the dataset:
+sepal length    7.9
+sepal width     4.4
+petal length    6.9
+petal width     2.5
+dtype: float64
+
+Standard deviation of the dataset:
+sepal length    0.828066
+sepal width     0.433594
+petal length    1.764420
+petal width     0.763161
+dtype: float64
+
+Median of the dataset:
+sepal length    5.80
+sepal width     3.00
+petal length    4.35
+petal width     1.30
+dtype: float64

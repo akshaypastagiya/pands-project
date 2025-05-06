@@ -1,5 +1,6 @@
 # pands-project
 This is the data analysis project for to do the data analysis of iris dataset.
+TO run this program required internet
 Setup
     Step 1 
     To setp the pands-project as a git directory

@@ -4,39 +4,49 @@
 # Given dataframe to the load iris dataset we have used pands
 # https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
 
+# Import Iris data to generate the summery of the data
 import load_iris as li
+# Import pands function to gethred the data summary data
 import pandas as pd
+# Import custome write function to write the summury data
+import writefile as wf
+
+# Gethred the iris data
 features,targets,variables = li.iris()
-print(features)
+
 #Create a dataframe of the iris dataset
 iris_df = features
 iris_df['targets'] = targets
-print(iris_df)
 
+# Get file name of the file where we need to write down the summury of the data in to text file
+filename = "summery.txt"
 # Get the summery of the dataset we will be using pands shape command
 # shape is return a tuple representing the dimensionality of the DataFrame.
-
-print(f"Shape of the dataset: \n {iris_df.shape}")
+data = f"Shape of the dataset: \n {iris_df.shape}\n"
 
 # pands dtypes function we will get the data type of each column.
+data = data + f"\n Data type of the dataset:\n{iris_df.dtypes}\n"
 
-print(f"Data type of the dataset:\n{iris_df.dtypes}")
+# Gether the feture names of the data set
+data = data + f"\nFeature of the dataset:\n{variables.head(4)['name']}\n"
 
-print(f"Feature of the dataset:\n{variables.head(4)['name']}")
-
-print(f"Target class of the dataset:\n{variables.iloc[4]['description']}")
+# Gether the tagrate class of the data set
+data = data + f"\nTarget class of the dataset:\n{variables.iloc[4]['description']}\n"
 
 #calculate mean of dataset
-print(f"Mean of the dataset:\n{iris_df.mean(numeric_only = True)}")
+data = data + f"\nMean of the dataset:\n{iris_df.mean(numeric_only = True)}\n"
 
 # Find the minimum value of the dataset
-print(f"Minimum value of the dataset:\n{iris_df.min(numeric_only = True)}")
+data = data + f"\nMinimum value of the dataset:\n{iris_df.min(numeric_only = True)}\n"
 
 # Find the maximum value of the dataset
-print(f"Maximum value of the dataset:\n{iris_df.max(numeric_only = True)}")
+data = data + f"\nMaximum value of the dataset:\n{iris_df.max(numeric_only = True)}\n"
 
 #print the standard deviation of the dataset
-print(f"Standard deviation of the dataset:\n{iris_df.std(numeric_only = True)}")
+data = data + f"\nStandard deviation of the dataset:\n{iris_df.std(numeric_only = True)}\n"
 
 #print the median of the dataset
-print(f"Median of the dataset:\n{iris_df.median(numeric_only = True)}")
+data = data + f"\nMedian of the dataset:\n{iris_df.median(numeric_only = True)}\n"
+
+# Write data in to text file
+wf.write(filename,data)
