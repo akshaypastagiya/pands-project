@@ -38,7 +38,8 @@ Dataset summery
     Datasourse of the data is UCI Machine Lerning Repository https://archive.ics.uci.edu/
 
 Generate plot with different dataset
-    
-    1. To generate the histogram plot we will be using matplotlib function
-    2. To install matplotlib package pip install matplotlib
-https://matplotlib.org/stable/gallery/statistics/hist.html
+    1. To install matplotlib package pip install matplotlib
+    2. To generate the histogram plot we will be using matplotlib function
+    https://matplotlib.org/stable/gallery/statistics/hist.html
+    3. To generate the scatter plot we will be using matplotlib function
+    https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html

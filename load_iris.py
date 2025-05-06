@@ -22,6 +22,6 @@ def iris():
     iris_df['targets'] = targets  
 
     # return the iris dataset data and variable
-    return features,targets,variables,iris_df
+    return features,variables,iris_df
 
 iris()
