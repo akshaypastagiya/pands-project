@@ -25,8 +25,3 @@ def scaplot(xaxis,yaxis,xcolumn_name,ycolumn_name):
     plt.title(f"Scatter plot of {xcolumn_name} vs {ycolumn_name}")
     plt.savefig(f"Scatter_{xcolumn_name}_{ycolumn_name}.png")
     plt.close()
-
-def boxplt(data1):#,xcolumn_name,ycolumn_name):
-    plt.figure()
-    plt.boxplot(data1)
-    plt.savefig(f"boxplot.png")

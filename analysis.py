@@ -14,6 +14,26 @@ import plot as plt
 import pandas as pd
 # Import custome write function to write the summury data
 import writefile as wf
+# Import socket function to check the internet connectivity
+import socket
+
+# To run this module required internet.
+# 1st need to check internet connectivityis there or not to run the module
+# https://docs.python.org/3/library/socket.html#socket.socket.connect
+
+def check_internet_connection():
+    try:
+      # Try to ping the server to check the internet connectivity
+      socket.create_connection(("8.8.8.8", 53), timeout=3)
+      return True
+    except OSError:
+      return False
+    socket.close()
+if check_internet_connection():
+   print("Internet is connected.")
+else:
+   print("Internet is not connected.")
+   exit()
 
 
 # Gethred the iris dataset
@@ -56,22 +76,50 @@ data_summary += f"\nMedian of the dataset:\n{iris_df.median(numeric_only = True)
 wf.write(filename,data_summary)
 
 # Step 2: Generate histogram
+# Histogram give you a graph showing frequency distributions. 
+# It is a graph showing the number of observations within each given interval.
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html#matplotlib.pyplot.hist
+
 plt.histplot(sepal_length,"sepal length")
 plt.histplot(sepal_width,"sepal width")
 plt.histplot(petal_length,"petal length")
 plt.histplot(petal_width,"petal width")
 
 # Step3: Generate Scatter Plot
+# Scatter plot is a graph where each value in the data set is represented by a dot.
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter
+
 plt.scaplot(sepal_length,sepal_width,"sepal length","sepal width")
 plt.scaplot(petal_length,petal_width,"petal length","petal width")
 plt.scaplot(sepal_length,petal_length,"sepal length","petal length")
 plt.scaplot(sepal_width,petal_width,"sepal width","petal width")
 print("Plot saved")
 
-# Step3: Generate Scatter Plot
+# Step4: Additional Analysis of the iris data set
+# Created box plot for addtional analysis of the dataset.
+# Box plot gived you the summury of the dataset like  including minimum, first quartile, median, third quartile and maximum
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.boxplot.html
+
 import matplotlib.pyplot as plt1
 plt1.figure()
 plt1.subplot()
-plt1.boxplot([iris_setosa['sepal length'],iris_versicolor['sepal length'],iris_virginica['sepal length']])
-plt1.savefig('boxplot1.png')
+plt1.boxplot([iris_setosa['sepal length'],iris_versicolor['sepal length'],iris_virginica['sepal length']], label = ['Setosa', 'Versicolor', 'Virginica'])
+plt1.xlabel('Iris Species')
+plt1.ylabel('Sepal Length(cm)')
+plt1.savefig('Boxplot Sepal Length.png')
+plt1.close()
+plt1.boxplot([iris_setosa['petal length'],iris_versicolor['petal length'],iris_virginica['petal length']], label = ['Setosa', 'Versicolor', 'Virginica'])
+plt1.xlabel('Iris Species')
+plt1.ylabel('Petal Length(cm)')
+plt1.savefig('Boxplot Petal Length.png')
+plt1.close()
+plt1.boxplot([iris_setosa['sepal width'],iris_versicolor['sepal width'],iris_virginica['sepal width']], label = ['Setosa', 'Versicolor', 'Virginica'])
+plt1.xlabel('Iris Species')
+plt1.ylabel('Sepal width(cm)')
+plt1.savefig('Boxplot Sepal width.png')
+plt1.close()
+plt1.boxplot([iris_setosa['petal width'],iris_versicolor['petal width'],iris_virginica['petal width']], label = ['Setosa', 'Versicolor', 'Virginica'])
+plt1.xlabel('Iris Species')
+plt1.ylabel('Petal width(cm)')
+plt1.savefig('Boxplot Sepal width.png')
 plt1.close()
